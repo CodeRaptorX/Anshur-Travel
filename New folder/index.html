@@ -1,0 +1,3722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anshur Travel Agency - Explore the World</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #f9f9f9;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--accent-color);
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            margin: 15px auto;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.sticky {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            color: var(--dark-color);
+            font-weight: 600;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--dark-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1506929562872-bb421503ef21?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* Search Form */
+        .search-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 50px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-submit {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
+
+        /* Destinations Section */
+        .destinations {
+            background-color: white;
+        }
+
+        .destinations-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .destination-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .destination-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .destination-card:hover .card-img img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .card-content p {
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+        }
+
+        .rating {
+            color: #f39c12;
+        }
+
+        .book-now {
+            width: 100%;
+            margin-top: 10px;
+            padding: 8px 0;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .book-now:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Service Modal Styles */
+        .service-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .service-modal.active {
+            display: flex;
+        }
+
+        .service-container {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            padding: 40px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInDown 0.5s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-service {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .service-modal-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .service-modal-icon {
+            font-size: 3rem;
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+        }
+
+        .service-modal-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .service-modal-description {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .service-form {
+            margin-top: 30px;
+        }
+
+        .service-form-group {
+            margin-bottom: 20px;
+        }
+
+        .service-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .service-form-group input,
+        .service-form-group select,
+        .service-form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .service-form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .service-form-submit {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: white;
+        }
+
+        .testimonials-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .testimonial {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            text-align: center;
+            display: none;
+        }
+
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .author-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            margin-bottom: 5px;
+            color: var(--primary-color);
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .testimonial-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .testimonial-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #ddd;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .testimonial-dot.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 15px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        /* Auth Modal Styles */
+        .auth-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .auth-modal.active {
+            display: flex;
+        }
+
+        .auth-container {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInDown 0.5s ease;
+        }
+
+        .close-auth {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .auth-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .auth-tab.active {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .auth-form {
+            display: none;
+        }
+
+        .auth-form.active {
+            display: block;
+        }
+
+        .auth-form-group {
+            margin-bottom: 20px;
+        }
+
+        .auth-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .auth-form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .auth-form-submit {
+            margin-top: 30px;
+        }
+
+        .auth-form-footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .auth-form-footer a {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+
+        .auth-error {
+            color: var(--accent-color);
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        /* User Profile Styles */
+        .user-profile {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .user-menu {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            padding: 15px 0;
+            display: none;
+            z-index: 100;
+        }
+
+        .user-menu.active {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .user-menu-item {
+            padding: 10px 20px;
+            transition: all 0.3s ease;
+        }
+
+        .user-menu-item:hover {
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+        }
+
+        /* Profile Modal Styles */
+        .profile-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-modal.active {
+            display: flex;
+        }
+
+        .profile-container {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInDown 0.5s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-profile {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: var(--secondary-color);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-right: 30px;
+        }
+
+        .profile-info h2 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .profile-info p {
+            color: var(--text-light);
+        }
+
+        .profile-tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .profile-tab {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+        }
+
+        .profile-tab.active {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--secondary-color);
+        }
+
+        .profile-content {
+            display: none;
+        }
+
+        .profile-content.active {
+            display: block;
+        }
+
+        .profile-form-group {
+            margin-bottom: 20px;
+        }
+
+        .profile-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .profile-form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .profile-form-submit {
+            margin-top: 30px;
+        }
+
+        .booking-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .booking-info h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .booking-info p {
+            color: var(--text-light);
+            margin-bottom: 5px;
+        }
+
+        .booking-status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .status-confirmed {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .status-pending {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .status-cancelled {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        /* Booking Modal */
+        .booking-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .booking-modal.active {
+            display: flex;
+        }
+
+        .booking-container {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInDown 0.5s ease;
+        }
+
+        .close-booking {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .booking-title {
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .booking-summary {
+            margin-bottom: 30px;
+        }
+
+        .booking-summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .booking-summary-item strong {
+            color: var(--dark-color);
+        }
+
+        .booking-form-group {
+            margin-bottom: 20px;
+        }
+
+        .booking-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .booking-form-group input,
+        .booking-form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .booking-form-submit {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Privacy Policy Page Styles */
+        .privacy-hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1551524559-8af4e6624178?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .privacy-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .privacy-content {
+            background-color: white;
+            padding: 60px 0;
+        }
+
+        .privacy-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .privacy-section {
+            margin-bottom: 40px;
+        }
+
+        .privacy-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .privacy-section h2::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .privacy-section p {
+            margin-bottom: 15px;
+        }
+
+        .privacy-section ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+
+        .privacy-section li {
+            margin-bottom: 8px;
+        }
+
+        .privacy-section table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .privacy-section th, 
+        .privacy-section td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .privacy-section th {
+            background-color: var(--light-color);
+        }
+
+        .privacy-section tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .privacy-consent {
+            background-color: var(--light-color);
+            padding: 30px;
+            border-radius: 8px;
+            margin: 40px 0;
+        }
+
+        .consent-toggle {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .consent-toggle label {
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .consent-toggle input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .consent-buttons {
+            margin-top: 20px;
+            display: flex;
+            gap: 15px;
+        }
+
+        .privacy-update {
+            font-style: italic;
+            color: var(--text-light);
+            margin-top: 30px;
+        }
+
+        /* Cookie Consent Banner */
+        .cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .cookie-banner.active {
+            transform: translateY(0);
+        }
+
+        .cookie-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .cookie-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .cookie-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .cookie-btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cookie-btn.accept {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+        }
+
+        .cookie-btn.accept:hover {
+            background-color: #2980b9;
+        }
+
+        .cookie-btn.settings {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .cookie-btn.settings:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Cookie Settings Modal */
+        .cookie-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cookie-modal.active {
+            display: flex;
+        }
+
+        .cookie-container {
+            background-color: white;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            animation: fadeInDown 0.5s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .close-cookie {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
+        }
+
+        .cookie-modal h2 {
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .cookie-group {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cookie-group h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .cookie-toggle {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .cookie-toggle input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .cookie-toggle label {
+            cursor: pointer;
+        }
+
+        .cookie-toggle .description {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-left: 30px;
+        }
+
+        .cookie-modal-buttons {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-btns {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+
+            nav {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 80px);
+                background-color: white;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                padding: 30px;
+            }
+
+            nav ul li {
+                margin: 0 0 20px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                margin-top: 70px;
+                height: auto;
+                padding: 100px 0;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .search-form {
+                margin-top: 30px;
+                padding: 20px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+            .newsletter-form button {
+                border-radius: 5px;
+                width: 100%;
+            }
+
+            .user-profile {
+                margin-left: 15px;
+            }
+            
+            .user-menu {
+                right: -20px;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-avatar {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .booking-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .booking-info {
+                margin-bottom: 15px;
+            }
+            
+            .testimonial-author {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .author-img {
+                margin-right: 0;
+                margin-bottom: 15px;
+            }
+
+            .privacy-hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.5rem;
+            }
+
+            .cookie-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cookie-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .consent-buttons {
+                flex-direction: column;
+            }
+
+            .consent-buttons .btn {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .auth-tabs {
+                flex-direction: column;
+                border-bottom: none;
+            }
+
+            .auth-tab {
+                border-bottom: 1px solid #eee;
+            }
+
+            .profile-tabs {
+                flex-direction: column;
+                border-bottom: none;
+            }
+
+            .profile-tab {
+                border-bottom: 1px solid #eee;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .footer-col {
+                text-align: center;
+            }
+            
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+            
+            .testimonial {
+                padding: 20px;
+            }
+            
+            .service-container {
+                padding: 20px;
+            }
+            
+            .service-modal-title {
+                font-size: 1.5rem;
+            }
+
+            .privacy-hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .privacy-section h2 {
+                font-size: 1.3rem;
+            }
+
+            .cookie-buttons {
+                flex-direction: column;
+            }
+
+            .cookie-btn {
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .search-form {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Login Button -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" id="homeLink">Anshur<span>Travel</span></a>
+            <div style="display: flex; align-items: center;">
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#destinations">Destinations</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy-policy">Privacy Policy</a></li>
+                    </ul>
+                </nav>
+                <div id="authButtons" style="margin-left: 30px;">
+                    <button class="btn btn-outline" id="loginBtn">Login</button>
+                    <button class="btn" id="registerBtn">Register</button>
+                </div>
+                <div class="user-profile" id="userProfile" style="display: none;">
+                    <div class="user-avatar" id="userAvatar">U</div>
+                    <span id="usernameDisplay">User</span>
+                    <div class="user-menu" id="userMenu">
+                        <div class="user-menu-item" id="profileLink">My Profile</div>
+                        <div class="user-menu-item" id="bookingsLink">My Bookings</div>
+                        <div class="user-menu-item" id="logoutBtn">Logout</div>
+                    </div>
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 style="margin-top: 10%;">Discover Your Perfect Vacation</h1>
+                    <p>Explore the world's most beautiful destinations with Anshur Travel Agency. We create unforgettable experiences tailored just for you.</p>
+                    <div class="hero-btns">
+                        <a href="#destinations" class="btn">Explore Tours</a>
+                        <a href="#contact" class="btn btn-outline">Contact Us</a>
+                    </div>
+                    <div class="search-form">
+                        <form id="tourSearchForm">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="destination">Destination</label>
+                                    <input type="text" id="destination" placeholder="Where to?">
+                                </div>
+                                <div class="form-group">
+                                    <label for="check-in">Check In</label>
+                                    <input type="date" id="check-in">
+                                </div>
+                                <div class="form-group">
+                                    <label for="check-out">Check Out</label>
+                                    <input type="date" id="check-out">
+                                </div>
+                                <div class="form-group">
+                                    <label for="guests">Guests</label>
+                                    <select id="guests">
+                                        <option value="1">1 Person</option>
+                                        <option value="2">2 People</option>
+                                        <option value="3">3 People</option>
+                                        <option value="4">4 People</option>
+                                        <option value="5+">5+ People</option>
+                                    </select>
+                                </div>
+                                <div class="form-submit">
+                                    <button type="submit" class="btn">Search Tours</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Destinations Section -->
+        <section class="section destinations" id="destinations">
+            <div class="container">
+                <h2 class="section-title">Popular Destinations</h2>
+                <div class="destinations-grid" id="destinationsGrid">
+                    <!-- Destinations will be loaded via JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="section services" id="services">
+            <div class="container">
+                <h2 class="section-title">Our Services</h2>
+                <div class="services-grid">
+                    <div class="service-card" data-service="flight">
+                        <div class="service-icon">✈</div>
+                        <h3>Flight Booking</h3>
+                        <p>We offer the best flight deals to all destinations worldwide with our trusted airline partners.</p>
+                    </div>
+                    <div class="service-card" data-service="hotel">
+                        <div class="service-icon">🏨</div>
+                        <h3>Hotel Reservation</h3>
+                        <p>Find the perfect accommodation for your trip, from luxury resorts to budget-friendly hotels.</p>
+                    </div>
+                    <div class="service-card" data-service="tour">
+                        <div class="service-icon">🌍</div>
+                        <h3>Tour Packages</h3>
+                        <p>Customized tour packages that include all you need for a memorable vacation experience.</p>
+                    </div>
+                    <div class="service-card" data-service="car">
+                        <div class="service-icon">🚗</div>
+                        <h3>Car Rental</h3>
+                        <p>Rent a car for your travels with our wide selection of vehicles at competitive prices.</p>
+                    </div>
+                    <div class="service-card" data-service="cruise">
+                        <div class="service-icon">🛳</div>
+                        <h3>Cruise Trips</h3>
+                        <p>Experience the luxury of cruise vacations to exotic destinations around the world.</p>
+                    </div>
+                    <div class="service-card" data-service="visa">
+                        <div class="service-icon">🛂</div>
+                        <h3>Visa Assistance</h3>
+                        <p>We provide complete visa processing services to make your travel preparations easier.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="section testimonials" id="testimonials">
+            <div class="container">
+                <h2 class="section-title">What Our Clients Say</h2>
+                <div class="testimonials-container">
+                    <div class="testimonial active" id="testimonial1">
+                        <p class="testimonial-text">"Anshur Travel Agency planned our honeymoon perfectly! Every detail was taken care of, and we had the most amazing time in Bali. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah Johnson">
+                            </div>
+                            <div class="author-info">
+                                <h4>Sarah Johnson</h4>
+                                <p>Honeymoon in Bali</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial" id="testimonial2">
+                        <p class="testimonial-text">"The European tour package was worth every penny. Great hotels, knowledgeable guides, and seamless transportation. Will definitely use Anshur again!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Michael Chen">
+                            </div>
+                            <div class="author-info">
+                                <h4>Michael Chen</h4>
+                                <p>European Adventure</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial" id="testimonial3">
+                        <p class="testimonial-text">"As a solo traveler, I was nervous about my trip to Japan. Anshur made everything so easy and safe. The itinerary was perfect - a great mix of culture and fun!"</p>
+                        <div class="testimonial-author">
+                            <div class="author-img">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Emily Rodriguez">
+                            </div>
+                            <div class="author-info">
+                                <h4>Emily Rodriguez</h4>
+                                <p>Solo Trip to Japan</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-nav">
+                        <div class="testimonial-dot active" data-testimonial="1"></div>
+                        <div class="testimonial-dot" data-testimonial="2"></div>
+                        <div class="testimonial-dot" data-testimonial="3"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get the latest travel deals, destination guides, and exclusive offers straight to your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Privacy Policy Section -->
+        <section class="privacy-content" id="privacy-policy">
+            <div class="container privacy-container">
+                <div class="privacy-hero">
+                    <h1>Privacy Policy</h1>
+                    <p>Your privacy is important to us. Learn how we collect, use, and protect your personal information.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Introduction</h2>
+                    <p>Welcome to Anshur Travel Agency's Privacy Policy. This document outlines how we collect, use, disclose, and safeguard your information when you visit our website or use our services. Please read this policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+                    <p>We reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you about any changes by updating the "Last Updated" date of this Privacy Policy. You are encouraged to periodically review this Privacy Policy to stay informed of updates.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Information We Collect</h2>
+                    <p>We may collect information about you in a variety of ways. The information we may collect on the Site includes:</p>
+                    
+                    <h3>Personal Data</h3>
+                    <p>Personally identifiable information, such as your name, shipping address, email address, and telephone number, and demographic information, such as your age, gender, hometown, and interests, that you voluntarily give to us when you register with the Site or when you choose to participate in various activities related to the Site, such as online booking and newsletter subscription.</p>
+                    
+                    <h3>Derivative Data</h3>
+                    <p>Information our servers automatically collect when you access the Site, such as your IP address, your browser type, your operating system, your access times, and the pages you have viewed directly before and after accessing the Site.</p>
+                    
+                    <h3>Financial Data</h3>
+                    <p>Financial information, such as data related to your payment method (e.g., valid credit card number, card brand, expiration date) that we may collect when you purchase, order, return, exchange, or request information about our services from the Site. We store only very limited, if any, financial information that we collect. Otherwise, all financial information is stored by our payment processor, and you are encouraged to review their privacy policy and contact them directly for responses to your questions.</p>
+                    
+                    <h3>Mobile Device Data</h3>
+                    <p>Device information, such as your mobile device ID, model, and manufacturer, and information about the location of your device, if you access the Site from a mobile device.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>How We Use Your Information</h2>
+                    <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the Site to:</p>
+                    <ul>
+                        <li>Create and manage your account.</li>
+                        <li>Process your transactions and send you related information, including purchase confirmations and invoices.</li>
+                        <li>Manage your bookings and send you booking confirmations and updates.</li>
+                        <li>Email you regarding your account or bookings.</li>
+                        <li>Enable user-to-user communications.</li>
+                        <li>Fulfill and manage purchases, orders, payments, and other transactions related to the Site.</li>
+                        <li>Generate a personal profile about you to make future visits to the Site more personalized.</li>
+                        <li>Increase the efficiency and operation of the Site.</li>
+                        <li>Monitor and analyze usage and trends to improve your experience with the Site.</li>
+                        <li>Notify you of updates to the Site.</li>
+                        <li>Offer new products, services, and/or recommendations to you.</li>
+                        <li>Perform other business activities as needed.</li>
+                        <li>Prevent fraudulent transactions, monitor against theft, and protect against criminal activity.</li>
+                        <li>Request feedback and contact you about your use of the Site.</li>
+                        <li>Resolve disputes and troubleshoot problems.</li>
+                        <li>Respond to product and customer service requests.</li>
+                        <li>Send you a newsletter.</li>
+                        <li>Solicit support for the Site.</li>
+                    </ul>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Disclosure of Your Information</h2>
+                    <p>We may share information we have collected about you in certain situations. Your information may be disclosed as follows:</p>
+                    
+                    <h3>By Law or to Protect Rights</h3>
+                    <p>If we believe the release of information about you is necessary to respond to legal process, to investigate or remedy potential violations of our policies, or to protect the rights, property, and safety of others, we may share your information as permitted or required by any applicable law, rule, or regulation.</p>
+                    
+                    <h3>Third-Party Service Providers</h3>
+                    <p>We may share your information with third parties that perform services for us or on our behalf, including payment processing, data analysis, email delivery, hosting services, customer service, and marketing assistance.</p>
+                    
+                    <h3>Marketing Communications</h3>
+                    <p>With your consent, or with an opportunity for you to withdraw consent, we may share your information with third parties for marketing purposes, as permitted by law.</p>
+                    
+                    <h3>Business Transfers</h3>
+                    <p>We may share or transfer your information in connection with, or during negotiations of, any merger, sale of company assets, financing, or acquisition of all or a portion of our business to another company.</p>
+                    
+                    <h3>Affiliates</h3>
+                    <p>We may share your information with our affiliates, in which case we will require those affiliates to honor this Privacy Policy. Affiliates include our parent company and any subsidiaries, joint venture partners or other companies that we control or that are under common control with us.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Tracking Technologies</h2>
+                    <p>We use various tracking technologies to collect and store information when you visit our website. This may include:</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Technology</th>
+                                <th>Purpose</th>
+                                <th>Data Collected</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cookies</td>
+                                <td>To enhance user experience and remember preferences</td>
+                                <td>Session information, preferences</td>
+                            </tr>
+                            <tr>
+                                <td>Web Beacons</td>
+                                <td>To understand user behavior and site usage</td>
+                                <td>Page views, time on site</td>
+                            </tr>
+                            <tr>
+                                <td>Google Analytics</td>
+                                <td>To analyze website traffic and usage patterns</td>
+                                <td>IP address, browser info, pages visited</td>
+                            </tr>
+                            <tr>
+                                <td>Facebook Pixel</td>
+                                <td>To measure ad effectiveness and deliver targeted ads</td>
+                                <td>Ad interactions, conversions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>Most web browsers are set to accept cookies by default. If you prefer, you can usually choose to set your browser to remove or reject browser cookies. Please note that if you choose to remove or reject cookies, this could affect the availability and functionality of the Site.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Third-Party Websites</h2>
+                    <p>The Site may contain links to third-party websites and applications of interest, including advertisements and external services, that are not affiliated with us. Once you have used these links to leave the Site, any information you provide to these third parties is not covered by this Privacy Policy, and we cannot guarantee the safety and privacy of your information.</p>
+                    <p>Before visiting and providing any information to any third-party websites, you should inform yourself of the privacy policies and practices (if any) of the third party responsible for that website, and should take those steps necessary to, in your discretion, protect the privacy of your information. We are not responsible for the content or privacy and security practices and policies of any third parties, including other sites, services or applications that may be linked to or from the Site.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Security of Your Information</h2>
+                    <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that despite our efforts, no security measures are perfect or impenetrable, and no method of data transmission can be guaranteed against any interception or other type of misuse. Any information disclosed online is vulnerable to interception and misuse by unauthorized parties. Therefore, we cannot guarantee complete security if you provide personal information.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Policy for Children</h2>
+                    <p>We do not knowingly solicit information from or market to children under the age of 13. If you become aware of any data we have collected from children under age 13, please contact us using the contact information provided below.</p>
+                </div>
+
+                <div class="privacy-section">
+                    <h2>Your Rights and Choices</h2>
+                    <p>Depending on your location, you may have certain rights regarding your personal information. These may include the right to:</p>
+                    <ul>
+                        <li>Request access to and obtain a copy of your personal information</li>
+                        <li>Request rectification or erasure of your personal information</li>
+                        <li>Restrict the processing of your personal information</li>
+                        <li>Data portability (if applicable)</li>
+                        <li>Object to the processing of your personal information</li>
+                        <li>Opt-out of marketing communications</li>
+                        <li>Withdraw consent (where processing is based on consent)</li>
+                    </ul>
+                    <p>To exercise any of these rights, please contact us using the details provided in the "Contact Us" section below. We will respond to your request within 30 days.</p>
+                </div>
+
+                <div class="privacy-consent">
+                    <h2>Your Consent</h2>
+                    <p>By using our site, you consent to our privacy policy. You can manage your consent preferences below:</p>
+                    
+                    <div class="consent-toggle">
+                        <input type="checkbox" id="analyticsConsent" checked>
+                        <label for="analyticsConsent">Allow analytics cookies to help us improve our website</label>
+                    </div>
+                    
+                    <div class="consent-toggle">
+                        <input type="checkbox" id="marketingConsent" checked>
+                        <label for="marketingConsent">Allow marketing cookies to receive personalized offers</label>
+                    </div>
+                    
+                    <div class="consent-buttons">
+                        <button class="btn" id="saveConsent">Save Preferences</button>
+                        <button class="btn" id="acceptAll">Accept All</button>
+                        <button class="btn" id="rejectAll">Reject All</button>
+                    </div>
+                </div>
+
+                <div class="privacy-update">
+                    <p><strong>Last Updated:</strong> <span id="policyDate"></span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3>Anshur Travel</h3>
+                        <p>Creating unforgettable travel experiences since 2010. We're dedicated to making your dream vacation a reality.</p>
+                        <div class="social-links">
+                            <a href="#"><span>📱</span></a>
+                            <a href="#"><span>📘</span></a>
+                            <a href="#"><span>📸</span></a>
+                            <a href="#"><span>🐦</span></a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#destinations">Destinations</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#testimonials">Testimonials</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#" class="service-link" data-service="flight">Flight Booking</a></li>
+                            <li><a href="#" class="service-link" data-service="hotel">Hotel Reservation</a></li>
+                            <li><a href="#" class="service-link" data-service="tour">Tour Packages</a></li>
+                            <li><a href="#" class="service-link" data-service="car">Car Rental</a></li>
+                            <li><a href="#" class="service-link" data-service="visa">Visa Assistance</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Contact Us</h3>
+                        <ul>
+                            <li>📞 +1 (555) 123-4567</li>
+                            <li>📧 info@anshurtravel.com</li>
+                            <li>📍 123 Travel Street, Suite 100<br>New York, NY 10001</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; <span id="currentYear">2023</span> Anshur Travel Agency. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Profile Modal -->
+    <div class="profile-modal" id="profileModal">
+        <div class="profile-container">
+            <span class="close-profile" id="closeProfile">&times;</span>
+            <div class="profile-header">
+                <div class="profile-avatar" id="profileAvatar">U</div>
+                <div class="profile-info">
+                    <h2 id="profileName">User Name</h2>
+                    <p id="profileEmail">user@example.com</p>
+                </div>
+            </div>
+
+            <div class="profile-tabs">
+                <div class="profile-tab active" data-tab="profile">Profile</div>
+                <div class="profile-tab" data-tab="bookings">My Bookings</div>
+            </div>
+
+            <div id="profileContent" class="profile-content active">
+                <form id="profileForm">
+                    <div class="profile-form-group">
+                        <label for="profileNameInput">Full Name</label>
+                        <input type="text" id="profileNameInput" required>
+                    </div>
+                    <div class="profile-form-group">
+                        <label for="profileEmailInput">Email</label>
+                        <input type="email" id="profileEmailInput" required>
+                    </div>
+                    <div class="profile-form-group">
+                        <label for="profilePasswordInput">New Password (leave blank to keep current)</label>
+                        <input type="password" id="profilePasswordInput">
+                    </div>
+                    <div class="profile-form-group">
+                        <label for="profileConfirmPasswordInput">Confirm New Password</label>
+                        <input type="password" id="profileConfirmPasswordInput">
+                    </div>
+                    <div class="profile-form-submit">
+                        <button type="submit" class="btn">Update Profile</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="bookingsContent" class="profile-content">
+                <div id="bookingsList">
+                    <!-- Bookings will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Auth Modals -->
+    <div class="auth-modal" id="authModal">
+        <div class="auth-container">
+            <span class="close-auth" id="closeAuth">&times;</span>
+            <div class="auth-tabs">
+                <div class="auth-tab active" data-tab="login">Login</div>
+                <div class="auth-tab" data-tab="register">Register</div>
+            </div>
+            
+            <form id="loginForm" class="auth-form active">
+                <div class="auth-form-group">
+                    <label for="loginEmail">Email</label>
+                    <input type="email" id="loginEmail" required>
+                    <div class="auth-error" id="loginEmailError"></div>
+                </div>
+                <div class="auth-form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                    <div class="auth-error" id="loginPasswordError"></div>
+                </div>
+                <div class="auth-form-submit">
+                    <button type="submit" class="btn">Login</button>
+                </div>
+                <div class="auth-form-footer">
+                    Don't have an account? <a href="#" id="switchToRegister">Register</a>
+                </div>
+            </form>
+            
+            <form id="registerForm" class="auth-form">
+                <div class="auth-form-group">
+                    <label for="registerName">Full Name</label>
+                    <input type="text" id="registerName" required>
+                    <div class="auth-error" id="registerNameError"></div>
+                </div>
+                <div class="auth-form-group">
+                    <label for="registerEmail">Email</label>
+                    <input type="email" id="registerEmail" required>
+                    <div class="auth-error" id="registerEmailError"></div>
+                </div>
+                <div class="auth-form-group">
+                    <label for="registerPassword">Password</label>
+                    <input type="password" id="registerPassword" required minlength="6">
+                    <div class="auth-error" id="registerPasswordError"></div>
+                </div>
+                <div class="auth-form-group">
+                    <label for="registerConfirmPassword">Confirm Password</label>
+                    <input type="password" id="registerConfirmPassword" required>
+                    <div class="auth-error" id="registerConfirmPasswordError"></div>
+                </div>
+                <div class="auth-form-submit">
+                    <button type="submit" class="btn">Register</button>
+                </div>
+                <div class="auth-form-footer">
+                    Already have an account? <a href="#" id="switchToLogin">Login</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Booking Modal -->
+    <div class="booking-modal" id="bookingModal">
+        <div class="booking-container">
+            <span class="close-booking" id="closeBooking">&times;</span>
+            <h2 class="booking-title" id="bookingTitle">Book Your Trip</h2>
+            
+            <div class="booking-summary">
+                <h3>Your Selection</h3>
+                <div class="booking-summary-item">
+                    <span>Destination:</span>
+                    <strong id="bookingDestination">Bali, Indonesia</strong>
+                </div>
+                <div class="booking-summary-item">
+                    <span>Price:</span>
+                    <strong id="bookingPrice">$1,299</strong>
+                </div>
+            </div>
+
+            <form id="bookingForm">
+                <div class="booking-form-group">
+                    <label for="bookingCheckIn">Check In Date</label>
+                    <input type="date" id="bookingCheckIn" required>
+                </div>
+                <div class="booking-form-group">
+                    <label for="bookingCheckOut">Check Out Date</label>
+                    <input type="date" id="bookingCheckOut" required>
+                </div>
+                <div class="booking-form-group">
+                    <label for="bookingGuests">Number of Guests</label>
+                    <select id="bookingGuests" required>
+                        <option value="1">1 Person</option>
+                        <option value="2">2 People</option>
+                        <option value="3">3 People</option>
+                        <option value="4">4 People</option>
+                        <option value="5+">5+ People</option>
+                    </select>
+                </div>
+                <div class="booking-form-group">
+                    <label for="bookingSpecialRequests">Special Requests</label>
+                    <textarea id="bookingSpecialRequests" rows="3" style="width: 100%; padding: 12px 15px; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;"></textarea>
+                </div>
+                <div class="booking-form-submit">
+                    <button type="submit" class="btn">Confirm Booking</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Service Modal -->
+    <div class="service-modal" id="serviceModal">
+        <div class="service-container">
+            <span class="close-service" id="closeService">&times;</span>
+            <div class="service-modal-header">
+                <div class="service-modal-icon" id="serviceModalIcon">✈</div>
+                <h2 class="service-modal-title" id="serviceModalTitle">Flight Booking</h2>
+                <p class="service-modal-description" id="serviceModalDescription">We offer the best flight deals to all destinations worldwide with our trusted airline partners.</p>
+            </div>
+            
+            <form class="service-form" id="serviceForm">
+                <div class="service-form-group">
+                    <label for="serviceFullName">Full Name</label>
+                    <input type="text" id="serviceFullName" required>
+                </div>
+                <div class="service-form-group">
+                    <label for="serviceEmail">Email</label>
+                    <input type="email" id="serviceEmail" required>
+                </div>
+                <div class="service-form-group">
+                    <label for="servicePhone">Phone Number</label>
+                    <input type="tel" id="servicePhone" required>
+                </div>
+                
+                <!-- Dynamic form fields will be added here based on service type -->
+                <div id="serviceDynamicFields"></div>
+                
+                <div class="service-form-group">
+                    <label for="serviceNotes">Additional Notes</label>
+                    <textarea id="serviceNotes" rows="3"></textarea>
+                </div>
+                
+                <div class="service-form-submit">
+                    <button type="submit" class="btn" id="serviceSubmitBtn">Submit Request</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cookie Consent Banner -->
+    <div class="cookie-banner" id="cookieBanner">
+        <div class="cookie-content">
+            <div class="cookie-text">
+                <p>We use cookies to enhance your experience on our website. By clicking "Accept All", you consent to our use of all cookies. You can manage your preferences by clicking "Cookie Settings".</p>
+            </div>
+            <div class="cookie-buttons">
+                <button class="cookie-btn settings" id="cookieSettings">Cookie Settings</button>
+                <button class="cookie-btn accept" id="acceptCookies">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div class="cookie-modal" id="cookieModal">
+        <div class="cookie-container">
+            <span class="close-cookie" id="closeCookie">&times;</span>
+            <h2>Cookie Settings</h2>
+            <p>You can manage your cookie preferences below. Please note that disabling certain types of cookies may impact your experience of the website.</p>
+            
+            <div class="cookie-group">
+                <h3>Essential Cookies</h3>
+                <p>These cookies are necessary for the website to function and cannot be switched off in our systems.</p>
+                <div class="cookie-toggle">
+                    <input type="checkbox" id="essentialCookies" checked disabled>
+                    <label for="essentialCookies">Always Active</label>
+                    <div class="description">Required for basic site functionality like page navigation and access to secure areas.</div>
+                </div>
+            </div>
+            
+            <div class="cookie-group">
+                <h3>Performance Cookies</h3>
+                <p>These cookies allow us to count visits and traffic sources so we can measure and improve the performance of our site.</p>
+                <div class="cookie-toggle">
+                    <input type="checkbox" id="performanceCookies" checked>
+                    <label for="performanceCookies">Allow Performance Cookies</label>
+                    <div class="description">Help us understand how visitors interact with our website by collecting and reporting information anonymously.</div>
+                </div>
+            </div>
+            
+            <div class="cookie-group">
+                <h3>Functional Cookies</h3>
+                <p>These cookies enable the website to provide enhanced functionality and personalization.</p>
+                <div class="cookie-toggle">
+                    <input type="checkbox" id="functionalCookies" checked>
+                    <label for="functionalCookies">Allow Functional Cookies</label>
+                    <div class="description">Used to remember choices you make (such as language preferences) to provide enhanced, more personal features.</div>
+                </div>
+            </div>
+            
+            <div class="cookie-group">
+                <h3>Targeting Cookies</h3>
+                <p>These cookies may be set through our site by our advertising partners to build a profile of your interests.</p>
+                <div class="cookie-toggle">
+                    <input type="checkbox" id="targetingCookies">
+                    <label for="targetingCookies">Allow Targeting Cookies</label>
+                    <div class="description">Used to track visitors across websites to deliver more relevant advertising.</div>
+                </div>
+            </div>
+            
+            <div class="cookie-modal-buttons">
+                <button class="btn" id="saveCookieSettings">Save Settings</button>
+                <button class="btn" id="acceptAllCookies">Accept All</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // User Authentication System
+        class AuthSystem {
+            constructor() {
+                this.users = JSON.parse(localStorage.getItem('travelUsers')) || [];
+                this.currentUser = JSON.parse(localStorage.getItem('currentUser')) || null;
+            }
+
+            register(name, email, password) {
+                // Check if user already exists
+                if (this.users.some(user => user.email === email)) {
+                    return { success: false, message: 'Email already registered' };
+                }
+
+                // Create new user
+                const newUser = {
+                    id: Date.now().toString(),
+                    name,
+                    email,
+                    password, // In real app, password should be hashed
+                    bookings: [],
+                    serviceRequests: []
+                };
+
+                this.users.push(newUser);
+                localStorage.setItem('travelUsers', JSON.stringify(this.users));
+                
+                return { success: true, user: newUser };
+            }
+
+            login(email, password) {
+                const user = this.users.find(u => u.email === email && u.password === password);
+                if (!user) {
+                    return { success: false, message: 'Invalid email or password' };
+                }
+
+                this.currentUser = user;
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                return { success: true, user };
+            }
+
+            logout() {
+                this.currentUser = null;
+                localStorage.removeItem('currentUser');
+            }
+
+            getCurrentUser() {
+                return this.currentUser;
+            }
+
+            updateUser(updatedUser) {
+                this.users = this.users.map(u => u.id === updatedUser.id ? updatedUser : u);
+                localStorage.setItem('travelUsers', JSON.stringify(this.users));
+                
+                if (this.currentUser && this.currentUser.id === updatedUser.id) {
+                    this.currentUser = updatedUser;
+                    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
+                }
+            }
+
+            addBooking(booking) {
+                if (!this.currentUser) return false;
+                
+                const user = this.users.find(u => u.id === this.currentUser.id);
+                if (!user) return false;
+                
+                user.bookings.push(booking);
+                this.updateUser(user);
+                return true;
+            }
+
+            getBookings() {
+                if (!this.currentUser) return [];
+                const user = this.users.find(u => u.id === this.currentUser.id);
+                return user ? user.bookings : [];
+            }
+
+            addServiceRequest(request) {
+                if (!this.currentUser) return false;
+                
+                const user = this.users.find(u => u.id === this.currentUser.id);
+                if (!user) return false;
+                
+                user.serviceRequests.push(request);
+                this.updateUser(user);
+                return true;
+            }
+        }
+
+        // Service Definitions
+        const services = {
+            flight: {
+                title: "Flight Booking",
+                icon: "✈",
+                description: "We offer the best flight deals to all destinations worldwide with our trusted airline partners.",
+                fields: [
+                    {
+                        id: "departureCity",
+                        label: "Departure City",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "destinationCity",
+                        label: "Destination City",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "departureDate",
+                        label: "Departure Date",
+                        type: "date",
+                        required: true
+                    },
+                    {
+                        id: "returnDate",
+                        label: "Return Date",
+                        type: "date",
+                        required: false
+                    },
+                    {
+                        id: "passengers",
+                        label: "Number of Passengers",
+                        type: "select",
+                        options: ["1", "2", "3", "4", "5+"],
+                        required: true
+                    },
+                    {
+                        id: "class",
+                        label: "Class",
+                        type: "select",
+                        options: ["Economy", "Premium Economy", "Business", "First Class"],
+                        required: true
+                    }
+                ]
+            },
+            hotel: {
+                title: "Hotel Reservation",
+                icon: "🏨",
+                description: "Find the perfect accommodation for your trip, from luxury resorts to budget-friendly hotels.",
+                fields: [
+                    {
+                        id: "destination",
+                        label: "Destination",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "checkIn",
+                        label: "Check-In Date",
+                        type: "date",
+                        required: true
+                    },
+                    {
+                        id: "checkOut",
+                        label: "Check-Out Date",
+                        type: "date",
+                        required: true
+                    },
+                    {
+                        id: "guests",
+                        label: "Number of Guests",
+                        type: "select",
+                        options: ["1", "2", "3", "4", "5+"],
+                        required: true
+                    },
+                    {
+                        id: "roomType",
+                        label: "Room Type",
+                        type: "select",
+                        options: ["Standard", "Deluxe", "Suite", "Executive", "Presidential"],
+                        required: true
+                    }
+                ]
+            },
+            tour: {
+                title: "Tour Packages",
+                icon: "🌍",
+                description: "Customized tour packages that include all you need for a memorable vacation experience.",
+                fields: [
+                    {
+                        id: "destination",
+                        label: "Destination",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "travelDates",
+                        label: "Travel Dates",
+                        type: "text",
+                        placeholder: "e.g., June 15-30, 2023",
+                        required: true
+                    },
+                    {
+                        id: "travelers",
+                        label: "Number of Travelers",
+                        type: "select",
+                        options: ["1", "2", "3", "4", "5+"],
+                        required: true
+                    },
+                    {
+                        id: "interests",
+                        label: "Interests",
+                        type: "checkbox-group",
+                        options: ["Adventure", "Culture", "Beach", "Wildlife", "Food", "Shopping"],
+                        required: false
+                    },
+                    {
+                        id: "budget",
+                        label: "Budget Range",
+                        type: "select",
+                        options: ["$500-$1000", "$1000-$2000", "$2000-$5000", "$5000+"],
+                        required: true
+                    }
+                ]
+            },
+            car: {
+                title: "Car Rental",
+                icon: "🚗",
+                description: "Rent a car for your travels with our wide selection of vehicles at competitive prices.",
+                fields: [
+                    {
+                        id: "pickupLocation",
+                        label: "Pickup Location",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "dropoffLocation",
+                        label: "Dropoff Location",
+                        type: "text",
+                        required: false
+                    },
+                    {
+                        id: "pickupDate",
+                        label: "Pickup Date",
+                        type: "date",
+                        required: true
+                    },
+                    {
+                        id: "dropoffDate",
+                        label: "Dropoff Date",
+                        type: "date",
+                        required: true
+                    },
+                    {
+                        id: "carType",
+                        label: "Car Type",
+                        type: "select",
+                        options: ["Economy", "Compact", "Mid-size", "Full-size", "SUV", "Luxury"],
+                        required: true
+                    }
+                ]
+            },
+            cruise: {
+                title: "Cruise Trips",
+                icon: "🛳",
+                description: "Experience the luxury of cruise vacations to exotic destinations around the world.",
+                fields: [
+                    {
+                        id: "departurePort",
+                        label: "Departure Port",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "destination",
+                        label: "Destination",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "departureDate",
+                        label: "Departure Date",
+                        type: "date",
+                        required: true
+                    },
+                    {
+                        id: "duration",
+                        label: "Duration",
+                        type: "select",
+                        options: ["3-5 days", "7 days", "10-14 days", "15+ days"],
+                        required: true
+                    },
+                    {
+                        id: "cabinType",
+                        label: "Cabin Type",
+                        type: "select",
+                        options: ["Interior", "Ocean View", "Balcony", "Suite"],
+                        required: true
+                    }
+                ]
+            },
+            visa: {
+                title: "Visa Assistance",
+                icon: "🛂",
+                description: "We provide complete visa processing services to make your travel preparations easier.",
+                fields: [
+                    {
+                        id: "destinationCountry",
+                        label: "Destination Country",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "visaType",
+                        label: "Visa Type",
+                        type: "select",
+                        options: ["Tourist", "Business", "Student", "Work", "Transit"],
+                        required: true
+                    },
+                    {
+                        id: "travelDate",
+                        label: "Planned Travel Date",
+                        type: "date",
+                        required: true
+                    },
+                    {
+                        id: "nationality",
+                        label: "Nationality",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "passportNumber",
+                        label: "Passport Number",
+                        type: "text",
+                        required: true
+                    },
+                    {
+                        id: "passportExpiry",
+                        label: "Passport Expiry Date",
+                        type: "date",
+                        required: true
+                    }
+                ]
+            }
+        };
+
+        // Cookie Consent System
+        class CookieConsent {
+            constructor() {
+                this.cookieName = 'anshurTravelConsent';
+                this.consent = this.getConsent();
+                this.requiredCookies = ['essential'];
+                this.cookieBanner = document.getElementById('cookieBanner');
+                this.cookieModal = document.getElementById('cookieModal');
+                
+                // Initialize
+                this.init();
+            }
+            
+            init() {
+                // Show banner if no consent exists
+                if (!this.consent) {
+                    this.showBanner();
+                }
+                
+                // Set up event listeners
+                document.getElementById('acceptCookies').addEventListener('click', () => this.acceptAll());
+                document.getElementById('cookieSettings').addEventListener('click', () => this.showModal());
+                document.getElementById('closeCookie').addEventListener('click', () => this.hideModal());
+                document.getElementById('saveCookieSettings').addEventListener('click', () => this.saveSettings());
+                document.getElementById('acceptAllCookies').addEventListener('click', () => this.acceptAll());
+                
+                // Privacy page consent controls
+                if (document.getElementById('saveConsent')) {
+                    document.getElementById('saveConsent').addEventListener('click', () => this.savePrivacySettings());
+                    document.getElementById('acceptAll').addEventListener('click', () => {
+                        this.acceptAll();
+                        this.updatePrivacyCheckboxes(true);
+                    });
+                    document.getElementById('rejectAll').addEventListener('click', () => {
+                        this.rejectAll();
+                        this.updatePrivacyCheckboxes(false);
+                    });
+                    
+                    // Initialize checkboxes based on current consent
+                    this.updatePrivacyCheckboxesFromConsent();
+                }
+            }
+            
+            getConsent() {
+                const cookieValue = document.cookie
+                    .split('; ')
+                    .find(row => row.startsWith(`${this.cookieName}=`))
+                    ?.split('=')[1];
+                
+                return cookieValue ? JSON.parse(decodeURIComponent(cookieValue)) : null;
+            }
+            
+            setConsent(consent) {
+                const expires = new Date();
+                expires.setFullYear(expires.getFullYear() + 1);
+                
+                document.cookie = `${this.cookieName}=${encodeURIComponent(JSON.stringify(consent))}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+                this.consent = consent;
+                
+                // Apply consent to tracking technologies
+                this.applyConsent();
+            }
+            
+            showBanner() {
+                this.cookieBanner.classList.add('active');
+            }
+            
+            hideBanner() {
+                this.cookieBanner.classList.remove('active');
+            }
+            
+            showModal() {
+                this.cookieModal.classList.add('active');
+                this.hideBanner();
+                
+                // Initialize modal checkboxes based on current consent
+                if (this.consent) {
+                    document.getElementById('performanceCookies').checked = this.consent.performance || false;
+                    document.getElementById('functionalCookies').checked = this.consent.functional || false;
+                    document.getElementById('targetingCookies').checked = this.consent.targeting || false;
+                } else {
+                    // Default to all on if no consent exists
+                    document.getElementById('performanceCookies').checked = true;
+                    document.getElementById('functionalCookies').checked = true;
+                    document.getElementById('targetingCookies').checked = false;
+                }
+            }
+            
+            hideModal() {
+                this.cookieModal.classList.remove('active');
+            }
+            
+            acceptAll() {
+                this.setConsent({
+                    essential: true,
+                    performance: true,
+                    functional: true,
+                    targeting: true,
+                    analytics: true,
+                    marketing: true
+                });
+                this.hideBanner();
+                this.hideModal();
+                
+                // Show confirmation
+                this.showToast('All cookies accepted');
+            }
+            
+            rejectAll() {
+                this.setConsent({
+                    essential: true, // Required cookies cannot be rejected
+                    performance: false,
+                    functional: false,
+                    targeting: false,
+                    analytics: false,
+                    marketing: false
+                });
+                this.hideBanner();
+                this.hideModal();
+                
+                // Show confirmation
+                this.showToast('Non-essential cookies rejected');
+            }
+            
+            saveSettings() {
+                const consent = {
+                    essential: true, // Always required
+                    performance: document.getElementById('performanceCookies').checked,
+                    functional: document.getElementById('functionalCookies').checked,
+                    targeting: document.getElementById('targetingCookies').checked,
+                    analytics: document.getElementById('performanceCookies').checked, // Alias for privacy page
+                    marketing: document.getElementById('targetingCookies').checked // Alias for privacy page
+                };
+                
+                this.setConsent(consent);
+                this.hideModal();
+                
+                // Show confirmation
+                this.showToast('Cookie preferences saved');
+            }
+            
+            savePrivacySettings() {
+                const consent = {
+                    essential: true, // Always required
+                    performance: document.getElementById('analyticsConsent').checked,
+                    functional: true, // Assume functional is always allowed with these settings
+                    targeting: document.getElementById('marketingConsent').checked,
+                    analytics: document.getElementById('analyticsConsent').checked,
+                    marketing: document.getElementById('marketingConsent').checked
+                };
+                
+                this.setConsent(consent);
+                
+                // Show confirmation
+                this.showToast('Privacy preferences saved');
+            }
+            
+            applyConsent() {
+                if (!this.consent) return;
+                
+                // Apply analytics consent
+                if (this.consent.analytics || this.consent.performance) {
+                    this.enableAnalytics();
+                } else {
+                    this.disableAnalytics();
+                }
+                
+                // Apply marketing consent
+                if (this.consent.marketing || this.consent.targeting) {
+                    this.enableMarketing();
+                } else {
+                    this.disableMarketing();
+                }
+            }
+            
+            enableAnalytics() {
+                // In a real implementation, this would initialize Google Analytics
+                console.log('Analytics cookies enabled');
+                // Example: gtag('consent', 'update', { 'analytics_storage': 'granted' });
+            }
+            
+            disableAnalytics() {
+                // In a real implementation, this would disable Google Analytics
+                console.log('Analytics cookies disabled');
+                // Example: gtag('consent', 'update', { 'analytics_storage': 'denied' });
+            }
+            
+            enableMarketing() {
+                // In a real implementation, this would initialize Facebook Pixel, etc.
+                console.log('Marketing cookies enabled');
+                // Example: fbq('consent', 'grant');
+            }
+            
+            disableMarketing() {
+                // In a real implementation, this would disable marketing trackers
+                console.log('Marketing cookies disabled');
+                // Example: fbq('consent', 'revoke');
+            }
+            
+            updatePrivacyCheckboxesFromConsent() {
+                if (!this.consent) return;
+                
+                document.getElementById('analyticsConsent').checked = this.consent.analytics || false;
+                document.getElementById('marketingConsent').checked = this.consent.marketing || false;
+            }
+            
+            updatePrivacyCheckboxes(accept) {
+                document.getElementById('analyticsConsent').checked = accept;
+                document.getElementById('marketingConsent').checked = accept;
+            }
+            
+            showToast(message) {
+                // In a real implementation, this would show a nice toast notification
+                console.log('Toast:', message);
+                alert(message); // Simple fallback
+            }
+        }
+
+        // Initialize Auth System
+        const authSystem = new AuthSystem();
+
+        // Initialize Cookie Consent System
+        const cookieConsent = new CookieConsent();
+
+        // DOM Elements
+        const authModal = document.getElementById('authModal');
+        const loginBtn = document.getElementById('loginBtn');
+        const registerBtn = document.getElementById('registerBtn');
+        const closeAuth = document.getElementById('closeAuth');
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const switchToRegister = document.getElementById('switchToRegister');
+        const switchToLogin = document.getElementById('switchToLogin');
+        const authButtons = document.getElementById('authButtons');
+        const userProfile = document.getElementById('userProfile');
+        const userMenu = document.getElementById('userMenu');
+        const userAvatar = document.getElementById('userAvatar');
+        const usernameDisplay = document.getElementById('usernameDisplay');
+        const logoutBtn = document.getElementById('logoutBtn');
+        const profileLink = document.getElementById('profileLink');
+        const bookingsLink = document.getElementById('bookingsLink');
+        const homeLink = document.getElementById('homeLink');
+        const profileModal = document.getElementById('profileModal');
+        const closeProfile = document.getElementById('closeProfile');
+        const profileAvatar = document.getElementById('profileAvatar');
+        const profileName = document.getElementById('profileName');
+        const profileEmail = document.getElementById('profileEmail');
+        const profileNameInput = document.getElementById('profileNameInput');
+        const profileEmailInput = document.getElementById('profileEmailInput');
+        const profilePasswordInput = document.getElementById('profilePasswordInput');
+        const profileConfirmPasswordInput = document.getElementById('profileConfirmPasswordInput');
+        const profileForm = document.getElementById('profileForm');
+        const profileTabs = document.querySelectorAll('.profile-tab');
+        const profileContents = document.querySelectorAll('.profile-content');
+        const bookingsList = document.getElementById('bookingsList');
+        const bookingModal = document.getElementById('bookingModal');
+        const closeBooking = document.getElementById('closeBooking');
+        const bookingTitle = document.getElementById('bookingTitle');
+        const bookingDestination = document.getElementById('bookingDestination');
+        const bookingPrice = document.getElementById('bookingPrice');
+        const bookingCheckIn = document.getElementById('bookingCheckIn');
+        const bookingCheckOut = document.getElementById('bookingCheckOut');
+        const bookingGuests = document.getElementById('bookingGuests');
+        const bookingSpecialRequests = document.getElementById('bookingSpecialRequests');
+        const bookingForm = document.getElementById('bookingForm');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        const testimonialDots = document.querySelectorAll('.testimonial-dot');
+        const testimonials = document.querySelectorAll('.testimonial');
+        const tourSearchForm = document.getElementById('tourSearchForm');
+        const newsletterForm = document.getElementById('newsletterForm');
+        const destinationsGrid = document.getElementById('destinationsGrid');
+        const serviceModal = document.getElementById('serviceModal');
+        const closeService = document.getElementById('closeService');
+        const serviceModalIcon = document.getElementById('serviceModalIcon');
+        const serviceModalTitle = document.getElementById('serviceModalTitle');
+        const serviceModalDescription = document.getElementById('serviceModalDescription');
+        const serviceDynamicFields = document.getElementById('serviceDynamicFields');
+        const serviceForm = document.getElementById('serviceForm');
+        const serviceSubmitBtn = document.getElementById('serviceSubmitBtn');
+        const serviceCards = document.querySelectorAll('.service-card');
+        const serviceLinks = document.querySelectorAll('.service-link');
+
+        // Current Booking
+        let currentBookingDestination = null;
+        let currentService = null;
+
+        // Check if user is logged in on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const user = authSystem.getCurrentUser();
+            if (user) {
+                updateUIForLoggedInUser(user);
+            }
+
+            // Initialize other components
+            renderDestinations();
+            startTestimonialSlider();
+            updateCurrentYear();
+            document.getElementById('policyDate').textContent = new Date().toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            });
+        });
+
+        // Auth Modal Toggle
+        function toggleAuthModal(show, tab = 'login') {
+            if (show) {
+                authModal.classList.add('active');
+                switchAuthTab(tab);
+            } else {
+                authModal.classList.remove('active');
+                clearAuthForms();
+            }
+        }
+
+        // Profile Modal Toggle
+        function toggleProfileModal(show, tab = 'profile') {
+            if (show) {
+                profileModal.classList.add('active');
+                switchProfileTab(tab);
+            } else {
+                profileModal.classList.remove('active');
+            }
+        }
+
+        // Switch between login and register tabs
+        function switchAuthTab(tab) {
+            authTabs.forEach(t => t.classList.remove('active'));
+            loginForm.classList.remove('active');
+            registerForm.classList.remove('active');
+
+            if (tab === 'login') {
+                document.querySelector('.auth-tab[data-tab="login"]').classList.add('active');
+                loginForm.classList.add('active');
+            } else {
+                document.querySelector('.auth-tab[data-tab="register"]').classList.add('active');
+                registerForm.classList.add('active');
+            }
+        }
+
+        // Clear auth forms
+        function clearAuthForms() {
+            document.querySelectorAll('.auth-form input').forEach(input => {
+                input.value = '';
+            });
+            document.querySelectorAll('.auth-error').forEach(error => {
+                error.textContent = '';
+                error.style.display = 'none';
+            });
+        }
+
+        // Update UI when user logs in
+        function updateUIForLoggedInUser(user) {
+            authButtons.style.display = 'none';
+            userProfile.style.display = 'flex';
+            usernameDisplay.textContent = user.name;
+            userAvatar.textContent = user.name.charAt(0).toUpperCase();
+        }
+
+        // Update UI when user logs out
+        function updateUIForLoggedOutUser() {
+            authButtons.style.display = 'block';
+            userProfile.style.display = 'none';
+            toggleProfileModal(false);
+        }
+
+        // Switch profile tab
+        function switchProfileTab(tab) {
+            profileTabs.forEach(t => t.classList.remove('active'));
+            profileContents.forEach(c => c.classList.remove('active'));
+
+            if (tab === 'profile') {
+                document.querySelector('.profile-tab[data-tab="profile"]').classList.add('active');
+                document.getElementById('profileContent').classList.add('active');
+                
+                // Update profile info
+                const user = authSystem.getCurrentUser();
+                if (user) {
+                    profileName.textContent = user.name;
+                    profileEmail.textContent = user.email;
+                    profileNameInput.value = user.name;
+                    profileEmailInput.value = user.email;
+                    profileAvatar.textContent = user.name.charAt(0).toUpperCase();
+                }
+            } else {
+                document.querySelector('.profile-tab[data-tab="bookings"]').classList.add('active');
+                document.getElementById('bookingsContent').classList.add('active');
+                loadUserBookings();
+            }
+        }
+
+        // Load user bookings
+        function loadUserBookings() {
+            const user = authSystem.getCurrentUser();
+            if (!user) return;
+
+            const bookings = authSystem.getBookings();
+            if (bookings.length === 0) {
+                bookingsList.innerHTML = '<p>You have no bookings yet.</p>';
+                return;
+            }
+
+            bookingsList.innerHTML = bookings.map(booking => `
+                <div class="booking-card">
+                    <div class="booking-info">
+                        <h3>${booking.destination}</h3>
+                        <p>Check In: ${booking.checkIn}</p>
+                        <p>Check Out: ${booking.checkOut}</p>
+                        <p>Guests: ${booking.guests}</p>
+                        ${booking.specialRequests ? `<p>Special Requests: ${booking.specialRequests}</p>` : ''}
+                    </div>
+                    <div>
+                        <span class="booking-status status-confirmed">Confirmed</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Show booking modal
+        function showBookingModal(destination) {
+            currentBookingDestination = destination;
+            bookingTitle.textContent = `Book ${destination.title}`;
+            bookingDestination.textContent = destination.title;
+            bookingPrice.textContent = destination.price;
+            
+            // Set default dates (today + 7 days)
+            const today = new Date();
+            const nextWeek = new Date();
+            nextWeek.setDate(today.getDate() + 7);
+            
+            bookingCheckIn.valueAsDate = today;
+            bookingCheckOut.valueAsDate = nextWeek;
+            bookingGuests.value = '2';
+            bookingSpecialRequests.value = '';
+            
+            bookingModal.classList.add('active');
+        }
+
+        // Hide booking modal
+        function hideBookingModal() {
+            bookingModal.classList.remove('active');
+        }
+
+        // Show service modal
+        function showServiceModal(serviceType) {
+            const service = services[serviceType];
+            if (!service) return;
+            
+            currentService = serviceType;
+            
+            // Update modal header
+            serviceModalIcon.textContent = service.icon;
+            serviceModalTitle.textContent = service.title;
+            serviceModalDescription.textContent = service.description;
+            
+            // Clear previous fields
+            serviceDynamicFields.innerHTML = '';
+            
+            // Add dynamic fields based on service type
+            service.fields.forEach(field => {
+                const formGroup = document.createElement('div');
+                formGroup.className = 'service-form-group';
+                
+                const label = document.createElement('label');
+                label.setAttribute('for', field.id);
+                label.textContent = field.label;
+                
+                formGroup.appendChild(label);
+                
+                let input;
+                
+                if (field.type === 'select') {
+                    input = document.createElement('select');
+                    input.id = field.id;
+                    input.required = field.required || false;
+                    
+                    field.options.forEach(option => {
+                        const optionElement = document.createElement('option');
+                        optionElement.value = option;
+                        optionElement.textContent = option;
+                        input.appendChild(optionElement);
+                    });
+                } else if (field.type === 'checkbox-group') {
+                    field.options.forEach(option => {
+                        const checkboxContainer = document.createElement('div');
+                        checkboxContainer.style.display = 'flex';
+                        checkboxContainer.style.alignItems = 'center';
+                        checkboxContainer.style.marginBottom = '5px';
+                        
+                        const checkbox = document.createElement('input');
+                        checkbox.type = 'checkbox';
+                        checkbox.id = `${field.id}-${option.toLowerCase().replace(' ', '-')}`;
+                        checkbox.name = field.id;
+                        checkbox.value = option;
+                        
+                        const checkboxLabel = document.createElement('label');
+                        checkboxLabel.setAttribute('for', checkbox.id);
+                        checkboxLabel.textContent = option;
+                        checkboxLabel.style.marginLeft = '5px';
+                        
+                        checkboxContainer.appendChild(checkbox);
+                        checkboxContainer.appendChild(checkboxLabel);
+                        formGroup.appendChild(checkboxContainer);
+                    });
+                } else {
+                    input = document.createElement('input');
+                    input.type = field.type;
+                    input.id = field.id;
+                    input.required = field.required || false;
+                    
+                    if (field.placeholder) {
+                        input.placeholder = field.placeholder;
+                    }
+                }
+                
+                if (input) {
+                    formGroup.appendChild(input);
+                }
+                
+                serviceDynamicFields.appendChild(formGroup);
+            });
+            
+            // Show modal
+            serviceModal.classList.add('active');
+        }
+
+        // Hide service modal
+        function hideServiceModal() {
+            serviceModal.classList.remove('active');
+            serviceForm.reset();
+        }
+
+        // Event Listeners for Auth System
+        loginBtn.addEventListener('click', () => toggleAuthModal(true, 'login'));
+        registerBtn.addEventListener('click', () => toggleAuthModal(true, 'register'));
+        closeAuth.addEventListener('click', () => toggleAuthModal(false));
+
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                switchAuthTab(tab.dataset.tab);
+            });
+        });
+
+        switchToRegister.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchAuthTab('register');
+        });
+
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            switchAuthTab('login');
+        });
+
+        // Login Form Submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // Clear previous errors
+            document.getElementById('loginEmailError').style.display = 'none';
+            document.getElementById('loginPasswordError').style.display = 'none';
+            
+            // Validate inputs
+            let isValid = true;
+            
+            if (!email) {
+                document.getElementById('loginEmailError').textContent = 'Email is required';
+                document.getElementById('loginEmailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!password) {
+                document.getElementById('loginPasswordError').textContent = 'Password is required';
+                document.getElementById('loginPasswordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Attempt login
+            const result = authSystem.login(email, password);
+            
+            if (result.success) {
+                toggleAuthModal(false);
+                updateUIForLoggedInUser(result.user);
+                alert(`Welcome back, ${result.user.name}!`);
+            } else {
+                document.getElementById('loginPasswordError').textContent = result.message;
+                document.getElementById('loginPasswordError').style.display = 'block';
+            }
+        });
+
+        // Register Form Submission
+        registerForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('registerName').value;
+            const email = document.getElementById('registerEmail').value;
+            const password = document.getElementById('registerPassword').value;
+            const confirmPassword = document.getElementById('registerConfirmPassword').value;
+            
+            // Clear previous errors
+            document.querySelectorAll('#registerForm .auth-error').forEach(error => {
+                error.textContent = '';
+                error.style.display = 'none';
+            });
+            
+            // Validate inputs
+            let isValid = true;
+            
+            if (!name) {
+                document.getElementById('registerNameError').textContent = 'Name is required';
+                document.getElementById('registerNameError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!email) {
+                document.getElementById('registerEmailError').textContent = 'Email is required';
+                document.getElementById('registerEmailError').style.display = 'block';
+                isValid = false;
+            } else if (!/^\S+@\S+\.\S+$/.test(email)) {
+                document.getElementById('registerEmailError').textContent = 'Invalid email format';
+                document.getElementById('registerEmailError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!password) {
+                document.getElementById('registerPasswordError').textContent = 'Password is required';
+                document.getElementById('registerPasswordError').style.display = 'block';
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById('registerPasswordError').textContent = 'Password must be at least 6 characters';
+                document.getElementById('registerPasswordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (password !== confirmPassword) {
+                document.getElementById('registerConfirmPasswordError').textContent = 'Passwords do not match';
+                document.getElementById('registerConfirmPasswordError').style.display = 'block';
+                isValid = false;
+            }
+            
+            if (!isValid) return;
+            
+            // Attempt registration
+            const result = authSystem.register(name, email, password);
+            
+            if (result.success) {
+                authSystem.login(email, password);
+                toggleAuthModal(false);
+                updateUIForLoggedInUser(result.user);
+                alert(`Welcome to Anshur Travel, ${result.user.name}!`);
+            } else {
+                document.getElementById('registerEmailError').textContent = result.message;
+                document.getElementById('registerEmailError').style.display = 'block';
+            }
+        });
+
+        // User Menu Toggle
+        userProfile.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userMenu.classList.toggle('active');
+        });
+
+        // Close user menu when clicking elsewhere
+        document.addEventListener('click', () => {
+            userMenu.classList.remove('active');
+        });
+
+        // Profile Link
+        profileLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            userMenu.classList.remove('active');
+            toggleProfileModal(true, 'profile');
+        });
+
+        // Bookings Link
+        bookingsLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            userMenu.classList.remove('active');
+            toggleProfileModal(true, 'bookings');
+        });
+
+        // Home Link
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Logout
+        logoutBtn.addEventListener('click', () => {
+            authSystem.logout();
+            updateUIForLoggedOutUser();
+            userMenu.classList.remove('active');
+            alert('You have been logged out successfully.');
+        });
+
+        // Close Profile Modal
+        closeProfile.addEventListener('click', () => {
+            toggleProfileModal(false);
+        });
+
+        // Profile Form Submission
+        profileForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const user = authSystem.getCurrentUser();
+            if (!user) return;
+            
+            const name = profileNameInput.value;
+            const email = profileEmailInput.value;
+            const password = profilePasswordInput.value;
+            const confirmPassword = profileConfirmPasswordInput.value;
+            
+            // Validate password if changed
+            if (password && password !== confirmPassword) {
+                alert('Passwords do not match');
+                return;
+            }
+            
+            // Update user
+            const updatedUser = {
+                ...user,
+                name,
+                email
+            };
+            
+            if (password) {
+                updatedUser.password = password;
+            }
+            
+            authSystem.updateUser(updatedUser);
+            updateUIForLoggedInUser(updatedUser);
+            
+            // Update profile display
+            profileName.textContent = name;
+            profileEmail.textContent = email;
+            profileAvatar.textContent = name.charAt(0).toUpperCase();
+            
+            alert('Profile updated successfully!');
+        });
+
+        // Profile Tabs
+        profileTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                switchProfileTab(tab.dataset.tab);
+            });
+        });
+
+        // Booking Modal
+        closeBooking.addEventListener('click', hideBookingModal);
+
+        // Booking Form Submission
+        bookingForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const user = authSystem.getCurrentUser();
+            if (!user) {
+                alert('Please login to book a trip');
+                hideBookingModal();
+                toggleAuthModal(true, 'login');
+                return;
+            }
+            
+            if (!currentBookingDestination) return;
+            
+            const booking = {
+                id: Date.now().toString(),
+                destination: currentBookingDestination.title,
+                price: currentBookingDestination.price,
+                checkIn: bookingCheckIn.value,
+                checkOut: bookingCheckOut.value,
+                guests: bookingGuests.value,
+                specialRequests: bookingSpecialRequests.value,
+                status: 'confirmed',
+                date: new Date().toISOString()
+            };
+            
+            const success = authSystem.addBooking(booking);
+            if (success) {
+                alert(`Your booking for ${booking.destination} has been confirmed!`);
+                hideBookingModal();
+                
+                // If on bookings tab, refresh the list
+                if (document.querySelector('.profile-tab[data-tab="bookings"]').classList.contains('active')) {
+                    loadUserBookings();
+                }
+            } else {
+                alert('There was an error processing your booking. Please try again.');
+            }
+        });
+
+        // Service Modal
+        closeService.addEventListener('click', hideServiceModal);
+
+        // Service Form Submission
+        serviceForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const user = authSystem.getCurrentUser();
+            if (!user) {
+                alert('Please login to request this service');
+                hideServiceModal();
+                toggleAuthModal(true, 'login');
+                return;
+            }
+            
+            if (!currentService) return;
+            
+            // Collect form data
+            const formData = new FormData(serviceForm);
+            const serviceData = {
+                serviceType: currentService,
+                serviceName: services[currentService].title,
+                date: new Date().toISOString(),
+                status: 'pending'
+            };
+            
+            // Convert FormData to object
+            for (let [key, value] of formData.entries()) {
+                serviceData[key] = value;
+            }
+            
+            // Handle checkbox groups
+            const checkboxGroups = {};
+            serviceForm.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                const groupName = checkbox.name;
+                if (!checkboxGroups[groupName]) {
+                    checkboxGroups[groupName] = [];
+                }
+                if (checkbox.checked) {
+                    checkboxGroups[groupName].push(checkbox.value);
+                }
+            });
+            
+            // Add checkbox groups to serviceData
+            for (const groupName in checkboxGroups) {
+                if (checkboxGroups[groupName].length > 0) {
+                    serviceData[groupName] = checkboxGroups[groupName].join(', ');
+                }
+            }
+            
+            // Add service request
+            const success = authSystem.addServiceRequest(serviceData);
+            if (success) {
+                alert(`Your ${services[currentService].title} request has been submitted! We'll contact you soon.`);
+                hideServiceModal();
+            } else {
+                alert('There was an error submitting your request. Please try again.');
+            }
+        });
+
+        // Service Cards Click Event
+        serviceCards.forEach(card => {
+            card.addEventListener('click', (e) => {
+                const serviceType = card.dataset.service;
+                showServiceModal(serviceType);
+            });
+        });
+
+        // Service Links Click Event
+        serviceLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const serviceType = link.dataset.service;
+                showServiceModal(serviceType);
+            });
+        });
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.textContent = mainNav.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (this.getAttribute('href') === '#') return;
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.textContent = '☰';
+                    }
+                    
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Testimonial Slider
+        let currentTestimonial = 0;
+        let testimonialInterval;
+
+        function showTestimonial(index) {
+            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+            testimonialDots.forEach(dot => dot.classList.remove('active'));
+            
+            testimonials[index].classList.add('active');
+            testimonialDots[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        function startTestimonialSlider() {
+            testimonialInterval = setInterval(() => {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }, 5000);
+        }
+
+        testimonialDots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                clearInterval(testimonialInterval);
+                const testimonialIndex = parseInt(dot.getAttribute('data-testimonial')) - 1;
+                showTestimonial(testimonialIndex);
+                startTestimonialSlider();
+            });
+        });
+
+        // Form Submissions
+        tourSearchForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const destination = document.getElementById('destination').value;
+            const checkIn = document.getElementById('check-in').value;
+            const checkOut = document.getElementById('check-out').value;
+            const guests = document.getElementById('guests').value;
+            
+            // In a real app, you would send this data to your backend
+            console.log('Search submitted:', { destination, checkIn, checkOut, guests });
+            
+            // Show a success message (in a real app, you would handle the response)
+            alert(`Searching for ${guests} guests in ${destination || 'your destination'} from ${checkIn} to ${checkOut}. This would connect to a real search API in production.`);
+        });
+
+        newsletterForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = newsletterForm.querySelector('input[type="email"]').value;
+            
+            // In a real app, you would send this to your newsletter service
+            console.log('Newsletter subscription:', email);
+            
+            // Show a success message
+            newsletterForm.innerHTML = '<p style="color:white;font-size:1.2rem;">Thank you for subscribing! You\'ll receive our next newsletter soon.</p>';
+        });
+
+        // Load destinations dynamically
+        const destinations = [
+            {
+                id: 1,
+                title: "Bali, Indonesia",
+                description: "Experience the tropical paradise with beautiful beaches, lush rice terraces, and vibrant culture.",
+                image: "https://images.unsplash.com/photo-1518544866338-9f29df5b04a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                price: "$1,299",
+                rating: "★★★★★"
+            },
+            {
+                id: 2,
+                title: "Paris, France",
+                description: "The city of love and lights, famous for its art, fashion, gastronomy and culture.",
+                image: "https://images.unsplash.com/photo-1431274172761-fca41d930114?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                price: "$1,899",
+                rating: "★★★★☆"
+            },
+            {
+                id: 3,
+                title: "Tokyo, Japan",
+                description: "A blend of ultramodern and traditional, from neon-lit skyscrapers to historic temples.",
+                image: "https://images.unsplash.com/photo-1542051841857-5f90071e7989?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                price: "$2,499",
+                rating: "★★★★★"
+            },
+            {
+                id: 4,
+                title: "Rome, Italy",
+                description: "Explore ancient history, magnificent art, and delicious cuisine in the Eternal City.",
+                image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                price: "$1,599",
+                rating: "★★★★☆"
+            },
+            {
+                id: 5,
+                title: "New York, USA",
+                description: "The city that never sleeps, with iconic landmarks, world-class museums, and diverse neighborhoods.",
+                image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                price: "$1,799",
+                rating: "★★★★★"
+            },
+            {
+                id: 6,
+                title: "Cape Town, South Africa",
+                description: "Stunning natural beauty with Table Mountain, beautiful beaches, and excellent wines.",
+                image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
+                price: "$2,199",
+                rating: "★★★★★"
+            }
+        ];
+
+        function renderDestinations() {
+            destinationsGrid.innerHTML = destinations.map(destination => `
+                <div class="destination-card" data-id="${destination.id}">
+                    <div class="card-img">
+                        <img src="${destination.image}" alt="${destination.title}">
+                    </div>
+                    <div class="card-content">
+                        <h3>${destination.title}</h3>
+                        <p>${destination.description}</p>
+                        <div class="card-meta">
+                            <span class="price">From ${destination.price}</span>
+                            <span class="rating">${destination.rating}</span>
+                        </div>
+                        <button class="book-now">Book Now</button>
+                    </div>
+                </div>
+            `).join('');
+
+            // Add event listeners to book buttons
+            document.querySelectorAll('.book-now').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const card = button.closest('.destination-card');
+                    const destinationId = parseInt(card.dataset.id);
+                    const destination = destinations.find(d => d.id === destinationId);
+                    if (destination) {
+                        showBookingModal(destination);
+                    }
+                });
+            });
+
+            // Add click event to cards
+            document.querySelectorAll('.destination-card').forEach(card => {
+                card.addEventListener('click', () => {
+                    const destinationId = parseInt(card.dataset.id);
+                    const destination = destinations.find(d => d.id === destinationId);
+                    if (destination) {
+                        showBookingModal(destination);
+                    }
+                });
+            });
+        }
+
+        // Sticky header on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('sticky');
+            } else {
+                header.classList.remove('sticky');
+            }
+        });
+
+        // Current year for footer
+        function updateCurrentYear() {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        }
+    </script>
+</body>
+</html>
